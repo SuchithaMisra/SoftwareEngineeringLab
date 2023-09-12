@@ -77,6 +77,7 @@ public class TestMeTests {
         TestMe testMe2 = testMe.doubleSizeTestMe();
         double actual = testMe2.getValue();
 
+        assertNotNull(testMe2);
         assertTrue(actual == expected);
      }
 }
