@@ -1,0 +1,1 @@
+To run this lab, navigate to Lab1 folder:
