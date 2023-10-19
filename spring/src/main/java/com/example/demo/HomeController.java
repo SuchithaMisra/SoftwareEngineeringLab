@@ -21,4 +21,26 @@ public class HomeController {
     return "test";
   }
 
+  /* TO DO :
+   * 
+   *    IMPLEMENT THESE SCREENS BASED ON THE PROJECT DIAGRAM
+   */
+
+  @GetMapping("/login")
+  public String login(){
+    return "login";
+  }
+
+  @GetMapping("/questions")
+  public String questions(){
+    return "questions";
+  }
+
+  @GetMapping("/score")
+  public String score(){
+    return "score";
+  }
+
+
+
 }
