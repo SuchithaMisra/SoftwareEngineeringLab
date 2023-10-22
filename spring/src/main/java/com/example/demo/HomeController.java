@@ -1,45 +1,47 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.example.demo.models.LoginForm;
 
 @Controller 
 public class HomeController {
 
   @GetMapping("/")
-  public String home() {
-    return "home";
-  }
+    public String loginForm(Model model) {
+      LoginForm loginForm = new LoginForm();
+      model.addAttribute("loginForm", loginForm);
+        return "login";
+    }
 
-  @GetMapping("/not_home")
-  public String notHome() {
-    return "not_home";
-  }
+  @PostMapping("/login")
+  public String loginSubmit(@ModelAttribute LoginForm loginForm, Model model) {
+      String expectedUsername = "Software Engineering";
+      String expectedPassword = "CSE2102";
 
-  @GetMapping("/test")
-  public String testPage() {
-    return "test";
-  }
+      if (loginForm.getUsername().equals(expectedUsername) && loginForm.getPassword().equals(expectedPassword)) {
+        model.addAttribute("loginMessage", "Login successful");
+        return "redirect:quiz";
+      } else {
+        model.addAttribute("loginMessage", "Login failed. Please check your credentials.");
+        return "login";
+      }
+    }
 
-  /* TO DO :
-   * 
-   *    IMPLEMENT THESE SCREENS BASED ON THE PROJECT DIAGRAM
-   */
+    @GetMapping("/quiz")
+    public String quizPage() {
+        return "quiz";
+    }
 
-  @GetMapping("/login")
-  public String login(){
-    return "login";
-  }
+    @GetMapping("/scores")
+    public String scorePage() {
+        return "test";
+    }
 
-  @GetMapping("/questions")
-  public String questions(){
-    return "questions";
-  }
-
-  @GetMapping("/score")
-  public String score(){
-    return "score";
-  }
 
 
 

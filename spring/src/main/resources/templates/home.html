@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>We are home</title>
-    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-  </head>
-  <body>
-    <h1>HELLO !!</h1>
-    <a-scene>
-	
-	    <a-entity id="pivot" 
-	              position="0  1  -5"  
-	              animation="property: rotation; to: 0  360  0; loop: true; dur: 10000">
-            <a-sphere position="0  0  -10" color="mediumseagreen"></a-sphere>
-      </a-entity>
-
-      <a-box position="0 0 -5" color="red"></a-box>
-      <a-camera position="0 1.6 0"></a-camera>
-    </a-scene>
-  </body>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+       
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+       
+        <input type="submit" value="Login">
+    </form>
+    <p id="loginMessage"></p>
  
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+ 
+            // Credentials Suchitha set
+            var expectedUsername = "Software Engineering";
+            var expectedPassword = "CSE2102";
+ 
+            if (username === expectedUsername && password === expectedPassword) {
+                document.getElementById("loginMessage").textContent = "Login successful";
+                // Creating link to go to next page if login successful
+                var link = document.createElement("a");
+                link.href = "/not_home"; // Set the link's URL
+                link.textContent = "Click here to view the quiz questions"; // Set the link text
+                link.style.display = "block"; // Make it a block element
+                document.getElementById("loginMessage").appendChild(link);
+            } else {
+                document.getElementById("loginMessage").textContent = "Login failed. Please check your credentials.";
+            }
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
 </html>

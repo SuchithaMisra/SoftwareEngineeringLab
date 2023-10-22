@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>TEST</title>
-  </head>
-  
-  <body>
-    <h1>TEST</h1>
-    
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Final Quiz Score</title>
+</head>
+
+
+<body>
+    <h1>Final Quiz Score</h1>
+    <p>Total score: <span id="quizScore">0 / 5</span></p>
+   
+    <script>
+        // Retrieve the quiz score from not_home
+        var quizScore = localStorage.getItem("quizScore");
+        if (quizScore !== null) {
+            // Display the quiz score over the total number of questions
+            var totalQuestions = 5; // Adjust depending on total number of questions on quiz
+            document.getElementById("quizScore").textContent = quizScore + " / " + totalQuestions;
+        }
+    </script>
+</body>
 </html>
