@@ -1,75 +1,29 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Quiz</title>
 </head>
-
-
 <body>
     <h1>Quiz</h1>
-    <form id="quizForm" onsubmit="return validateForm()">
+    <form id="quizForm" action="/quiz/submit" method="post">
         <label for="question1">Question 1:</label>
         <input type="text" id="question1" name="question1" required><br><br>
-
 
         <label for="question2">Question 2:</label>
         <input type="text" id="question2" name="question2" required><br><br>
 
-
         <label for="question3">Question 3:</label>
         <input type="text" id="question3" name="question3" required><br><br>
-
 
         <label for="question4">Question 4:</label>
         <input type="text" id="question4" name="question4" required><br><br>
 
-
         <label for="question5">Question 5:</label>
         <input type="text" id="question5" name="question5" required><br><br>
-
 
         <input type="submit" value="Submit">
     </form>
 
-
-   
     <a href="/scores" id="scoreLink" style="display: none">Click to view final score</a>
-
-
-    <script>
-        var correctAnswers = ["test", "test", "test", "test", "test"];
-        var score = 0;
-
-
-        function validateForm() {
-            var userAnswers = [
-                document.getElementById("question1").value,
-                document.getElementById("question2").value,
-                document.getElementById("question3").value,
-                document.getElementById("question4").value,
-                document.getElementById("question5").value
-            ];
-
-
-            for (var i = 0; i < correctAnswers.length; i++) {
-                if (userAnswers[i] === correctAnswers[i]) {
-                    score++; // Keep track of questions answered correctly
-                }
-            }
-
-
-            // Store the score in local storage
-            localStorage.setItem("quizScore", score);
-
-
-            // Show the link ONLY after Submit button is clicked
-            document.getElementById("scoreLink").style.display = "inline";
-
-
-            // Prevent the form from being submitted
-            return false;
-        }
-    </script>
 </body>
 </html>
