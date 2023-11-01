@@ -1,6 +1,8 @@
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/DemoApplication.java
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/HomeController.java
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/models/SessionScore.java
+/home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/models/Question.java
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/service/ScoreService.java
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/models/LoginForm.java
 /home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/models/QuizForm.java
+/home/map19042/SoftwareEng/lab/SoftwareEngineeringLab/spring/src/main/java/com/example/demo/repository/QuizBank.java
