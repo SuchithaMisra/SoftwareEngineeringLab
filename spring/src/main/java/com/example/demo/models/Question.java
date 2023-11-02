@@ -1,23 +1,22 @@
 package com.example.demo.models;
 
-import java.util.UUID;
-import jakarta.persistence.Getter;
-import jakarta.persistence.Setter;
-import jakarta.persistence.NoArgsConstructor;
-import jakarta.persistence.AllArgsContructor;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
-
-@Getter 
+@Getter
 @Setter
-@NoArgsConstructor 
-@AllArgsContructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Question {
 
 
-    private String question;
+    public String question;
 
-    private String answer;
+    public String answer;
 
 
 }

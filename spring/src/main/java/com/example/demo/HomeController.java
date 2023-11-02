@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.repository.QuizBank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ public class HomeController {
 
   @Autowired
   ScoreService scoreService;
+
+  QuizBank quizBank = new QuizBank();
 
   // this could be replaced by a repository
   public SessionScore sessionScore = new SessionScore();
@@ -46,8 +49,9 @@ public class HomeController {
     }
 
     @GetMapping("/quiz")
-    public String quizPage() {
-        return "quiz";
+    public String quizPage(Model model) {
+      model.addAttribute("quizBank", quizBank);
+      return "quiz";
     }
 
     @PostMapping("/quiz/submit")
