@@ -7,10 +7,11 @@ import com.example.demo.models.Question;
 
 public class QuizBank {
 
-    public static List<Question> quizBank = new ArrayList();
+    public static List<Question> quizBank;
 
     public QuizBank() {
-        quizBank.add(new Question("What is two plus two?", "5"));
+        this.quizBank = new ArrayList();
+        quizBank.add(new Question("What is two plus two?", "4"));
         quizBank.add(new Question("What is two times two?", "4"));
         quizBank.add(new Question("What is two divided two?", "1"));
         quizBank.add(new Question("What is two modulo two?", "0"));

@@ -57,16 +57,15 @@ public class HomeController {
     @PostMapping("/quiz/submit")
     public String quizSubmit(@ModelAttribute("quizForm") QuizForm quizForm, Model model) {
         List<String> userAnswers = Arrays.asList(
+            quizForm.getQuestion0(),
             quizForm.getQuestion1(),
             quizForm.getQuestion2(),
             quizForm.getQuestion3(),
-            quizForm.getQuestion4(),
-            quizForm.getQuestion5()
+            quizForm.getQuestion4()
         );
 
-        List<String> correctAnswers = Arrays.asList("test", "test", "test", "test", "test");
 
-        int score = scoreService.calculateScore(userAnswers, correctAnswers);
+        int score = scoreService.calculateScore(userAnswers, quizBank);
 
         model.addAttribute("quizScore", score);
 
