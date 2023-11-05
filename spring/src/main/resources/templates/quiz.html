@@ -3,31 +3,27 @@
 <head>
     <title>Quiz</title>
 </head>
-<body> 
-    <h1>Quiz</h1>
-    <form id="quizForm" action="/quiz/submit" method="post">
-        <label for="question1">Question 1:</label>
-        <input type="text" id="question1" name="question1" required><br><br>
+<body>
+<h1>Quiz</h1>
+<form id="quizForm" action="/quiz/submit" method="post">
+    <label th:for="'question0'" th:text="'Question 1: ' + ${quizBank.get(0).question}"></label>
+    <input type="text" th:id="'question0'" th:name="'question0'" required><br><br>
 
-        <label for="question2">Question 2:</label>
-        <input type="text" id="question2" name="question2" required><br><br>
+    <label th:for="'question1'" th:text="'Question 2: ' + ${quizBank.get(1).question}"></label>
+    <input type="text" th:id="'question1'" th:name="'question1'" required><br><br>
 
-        <label for="question3">Question 3:</label>
-        <input type="text" id="question3" name="question3" required><br><br>
+    <label th:for="'question2'" th:text="'Question 3: ' + ${quizBank.get(2).question}"></label>
+    <input type="text" th:id="'question2'" th:name="'question2'" required><br><br>
 
-        <label for="question4">Question 4:</label>
-        <input type="text" id="question4" name="question4" required><br><br>
+    <label th:for="'question3'" th:text="'Question 4: ' + ${quizBank.get(3).question}"></label>
+    <input type="text" th:id="'question3'" th:name="'question3'" required><br><br>
 
-        <label for="question5">Question 5:</label>
-        <input type="text" id="question5" name="question5" required><br><br>
+    <label th:for="'question4'" th:text="'Question 5: ' + ${quizBank.get(4).question}"></label>
+    <input type="text" th:id="'question4'" th:name="'question4'" required><br><br>
 
-        <!--<input type="submit" value="Submit">-->
-    </form>
+    <input type="submit" value="Submit">
+</form>
 
-    <!--<a href="/scores" id="scoreLink" style="display: none">Click to view final score</a>-->
-        <a href="/proxy/8093/scores"> 
-            <button type = "button"> Submit </button>
-        </a>
-
+<a href="/proxy/8093/scores" id="scoreLink" style="display: none">Click to view the final score</a>
 </body>
 </html>
