@@ -3,7 +3,7 @@
 <head>
     <title>Login Page</title>
 </head>
-<body>
+<body> 
     <h1>Login</h1>
     <form id="loginForm" th:action="@{/login}" method="post" th:object="${loginForm}">
         <label for="username">Username:</label>
@@ -12,7 +12,10 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" th:field="${loginForm.password}" required><br><br>
        
-        <input type="submit" value="Login">
+        <!--<input type="submit" value="Login">-->
+        <a href="/proxy/8093/quiz"> 
+            <button type = "button"> Login </button>
+        </a>
     </form>
     <p th:text="${loginMessage}" id="loginMessage"></p>
 </body>

@@ -16,11 +16,19 @@ import com.example.demo.models.SessionScore;
 import com.example.demo.models.LoginForm;
 import com.example.demo.service.ScoreService;
 
+import com.example.demo.UsernameValidator;  //for login test created 
+
 @Controller 
 public class HomeController {
 
   @Autowired
   ScoreService scoreService;
+
+  private final UsernameValidator usernameValidator;
+
+    public HomeController(UsernameValidator usernameValidator) {
+        this.usernameValidator = usernameValidator;
+    }
 
   QuizBank quizBank = new QuizBank();
 
@@ -36,16 +44,18 @@ public class HomeController {
 
   @PostMapping("/login")
   public String loginSubmit(@ModelAttribute LoginForm loginForm, Model model) {
-      String expectedUsername = "Software Engineering";
-      String expectedPassword = "CSE2102";
+        // Get the entered username and password from the loginForm
+        String enteredUsername = loginForm.getUsername();
+        String enteredPassword = loginForm.getPassword();
 
-      if (loginForm.getUsername().equals(expectedUsername) && loginForm.getPassword().equals(expectedPassword)) {
-        model.addAttribute("loginMessage", "Login successful");
-        return "redirect:quiz";
-      } else {
-        model.addAttribute("loginMessage", "Login failed. Please check your credentials.");
-        return "login";
-      }
+        // Check the username using the UsernameValidator
+        if (usernameValidator.validateUsername(enteredUsername) && enteredPassword.equals("CSE2102")) {
+            model.addAttribute("loginMessage", "Login successful");
+            return "redirect:quiz";
+        } else {
+            model.addAttribute("loginMessage", "Login failed. Please check your credentials.");
+            return "login";
+        }
     }
 
     @GetMapping("/quiz")
